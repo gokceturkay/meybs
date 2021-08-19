@@ -37,7 +37,7 @@ class Student(models.Model):
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
-    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) # foreginkey :,,,,(
+    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
     tc = models.PositiveBigIntegerField(max_length=11, primary_key=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
     students = models.ForeignKey('Student', on_delete=models.CASCADE)
