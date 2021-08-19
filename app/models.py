@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.base import ModelState
+from django.db.models.fields import CharField
 from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
@@ -7,14 +8,14 @@ import datetime
 
 
 class Student(models.Model):
-    first_name = models.CharField(max_length=30,blank=False)
-    last_name = models.CharField(max_length=20,blank=False)
-    birthday = models.DateField(blank=True) # sınırlamalar koy
-    custodian = models.CharField(max_length=30,blank=False)
+    first_name = models.CharField(max_length=30, blank=False)
+    last_name = models.CharField(max_length=20, blank=False)
+    birthday = models.DateField(max_length=8, blank=True) # sınırlamalar koy
+    custodian = models.CharField(max_length=30, blank=False)
     tc = models.PositiveBigIntegerField(max_length=11, primary_key=True) 
-    address = models.CharField(max_length=300,blank=True)
+    address = models.CharField(max_length=300, blank=True)
     email = models.EmailField(blank=True) # null kullanmama gerek var mı ?
-    school = models.CharField(max_length=30,blank=True)
+    school = models.CharField(max_length=30, blank=True)
     phone_no = models.PositiveBigIntegerField(max_length=10)
     created = models.DateTimeField(auto_now_add=True) 
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
