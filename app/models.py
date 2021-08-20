@@ -38,13 +38,8 @@ class Student(models.Model):
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
-<<<<<<< HEAD
     lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) # foreginkey :,,,,(
     tc = models.PositiveBigIntegerField(max_length=11, primary_key=True,blank=True)
-=======
-    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
-    tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
->>>>>>> c6726a8d8d804188ed86ee54fc02b2f9093dd5c1
     created = models.DateTimeField(auto_now_add=True)
     students = models.ForeignKey('Student', on_delete=models.CASCADE)
     # paylaşımlar, diğer bilgiler istenmemiş
