@@ -13,9 +13,9 @@ class Student(models.Model):
     birthday = models.DateField(max_length=8, blank=True) # sınırlamalar koy
     custodian = models.CharField(max_length=30, blank=False)
     tc = models.PositiveBigIntegerField(max_length=11, primary_key=True) 
-    address = models.CharField(max_length=300, blank=True)
+    address = models.CharField(max_length=300,blank=True)
     email = models.EmailField(blank=True) # null kullanmama gerek var mı ?
-    school = models.CharField(max_length=30, blank=True)
+    school = models.CharField(max_length=30,blank=True)
     phone_no = models.PositiveBigIntegerField(max_length=10)
     created = models.DateTimeField(auto_now_add=True) 
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
@@ -37,7 +37,7 @@ class Student(models.Model):
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
-    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
+    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) # foreginkey :,,,,(
     tc = models.PositiveBigIntegerField(max_length=11, primary_key=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
     students = models.ForeignKey('Student', on_delete=models.CASCADE)
