@@ -13,19 +13,11 @@ class Student(models.Model):
     last_name = models.CharField(max_length=20, blank=False)
     birthday = models.DateField(max_length=8, blank=True) # sınırlamalar koy
     custodian = models.CharField(max_length=30, blank=False)
-<<<<<<< HEAD
-    tc = models.PositiveBigIntegerField(max_length=11, primary_key=True) 
-    address = models.CharField(max_length=300,blank=True)
-    email = models.EmailField(blank=True) # null kullanmama gerek var mı ?
-    school = models.CharField(max_length=30,blank=True)
-    phone_no = models.PositiveBigIntegerField(max_length=10)
-=======
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
     address = models.CharField(max_length=300, blank=True)
     email = models.EmailField(blank=True) # null kullanmama gerek var mı ?
     school = models.CharField(max_length=30, blank=True)
     phone_no = models.IntegerField(max_length=10)
->>>>>>> 05be486e5c00e4270491fe1a1adaeefc49ba28c5
     created = models.DateTimeField(auto_now_add=True) 
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
     
@@ -46,13 +38,8 @@ class Student(models.Model):
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
-<<<<<<< HEAD
-    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) # foreginkey :,,,,(
-    tc = models.PositiveBigIntegerField(max_length=11, primary_key=True,blank=True)
-=======
     lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
->>>>>>> 05be486e5c00e4270491fe1a1adaeefc49ba28c5
     created = models.DateTimeField(auto_now_add=True)
     students = models.ForeignKey('Student', on_delete=models.CASCADE)
     # paylaşımlar, diğer bilgiler istenmemiş
