@@ -1,0 +1,33 @@
+/********* GENERAL *********/
+body{font-size: 15px; color: #000;}
+
+/********* Navbar Override *********/
+.navbar-nav{padding-left: 77%;}     /* Nav'ın içindekileri sağa dayalı yapmalıyım. Float ve text align denedim. ''Geçici çözüm olarak padding verdim.'') */
+
+/********* Navbar *********/
+                    /* Not : Dropdown menu'de text-align : center gerekiyor. */
+.nav-i, .nav-i-menu{border: none; background: none;}
+.nav-i{font-size: 1.9em} .nav-i-menu{font-size: 1.5em;}
+nav input{height: 2em;}     /* input'u küçülttüğüm için yatay ortalama yapmam gerekiyor. */
+
+/********* Calendar *********/
+.soonest-class{margin: auto; background-color: #000; color: #fff;}
+
+/********* Graphs *********/
+
+/********* Post *********/
+
+/********* New Students *********/
+.student{ margin: auto; height: 2.85em; margin-bottom: 1em;}
+
+/********* Add User *********/
+
+/********* Events *********/
+
+
+
+/********* Geçici *********/
+
+.container-fluid div{border: 1px solid #000;}
+.row{border: none !important;}
+.row{padding: 1em 0;} .graph{margin: auto; height: 20em;} .add{margin: auto; height: 15em;} .add-user, .events{height: 12em;}
