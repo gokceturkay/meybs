@@ -6,8 +6,6 @@ from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
 
-
-
 class Student(models.Model):
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=20, blank=False)
@@ -30,11 +28,6 @@ class Student(models.Model):
         return self.first_name, self.last_name
 
 
-
-
-
-
-
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
@@ -45,12 +38,6 @@ class Instructor(models.Model):
     # paylaşımlar, diğer bilgiler istenmemiş
 
 
-
-
-
-
-
-
 class Lessons(models.Model):
     name = models.CharField(max_length=40)
     l_instructor = ForeignKey('Instructor', on_delete=models.CASCADE)
@@ -59,10 +46,6 @@ class Lessons(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
 
 
 class Custodian(models.Model):
