@@ -12,7 +12,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=20, blank=False)
     birthday = models.DateField(max_length=8, blank=True) # sınırlamalar koy
-    custodian = models.CharField(max_length=30, blank=False)
+    s_custodian = models.CharField(max_length=30, blank=False)
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
     address = models.CharField(max_length=300, blank=True)
     email = models.EmailField(blank=True) # null kullanmama gerek var mı ?
@@ -69,7 +69,7 @@ class Custodian(models.Model):
     first_name = models.CharField(max_length=30,blank=True)
     last_name = models.CharField(max_length=20,blank=True)
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
-    students =  ForeignKey('Student', on_delete=models.CASCADE)  
+    c_students =  ForeignKey('Student', on_delete=models.CASCADE)  
 
     def __str__(self):
          return self.first_name, self.last_name 
