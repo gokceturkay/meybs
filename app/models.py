@@ -17,9 +17,7 @@ class Student(models.Model):
     school = models.CharField(max_length=30, blank=True)
     phone_no = models.PositiveIntegerField(validators=[MaxValueValidator(9999999999)])
     created = models.DateTimeField(auto_now_add=True) 
-    verbose_name="Öğrenci"
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
-    
 
     def FindAge(self):
         age =datetime.date.today()-self.birthday
@@ -35,16 +33,13 @@ class Instructor(models.Model):
     i_lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
     created = models.DateTimeField(auto_now_add=True)
-    students = models.ForeignKey('Student', on_delete=models.CASCADE,verbose_name="Eğitmen")
-    
+    students = models.ForeignKey('Student', on_delete=models.CASCADE)
     # paylaşımlar, diğer bilgiler istenmemiş
-
 
 class Lessons(models.Model):
     name = models.CharField(max_length=40)
     l_instructor = ForeignKey('Instructor', on_delete=models.CASCADE)
-    student = ForeignKey('Student', on_delete=models.CASCADE,verbose_name="Atölye")  
-    
+    student = ForeignKey('Student', on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -55,7 +50,7 @@ class Custodian(models.Model):
     first_name = models.CharField(max_length=30,blank=True)
     last_name = models.CharField(max_length=20,blank=True)
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
-    c_students =  ForeignKey('Student', on_delete=models.CASCADE,verbose_name="Veli")  
+    c_students =  ForeignKey('Student', on_delete=models.CASCADE)
     
 
     def __str__(self):
