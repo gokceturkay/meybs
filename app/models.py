@@ -38,7 +38,7 @@ class Student(models.Model):
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30,blank=False)
     last_name = models.CharField(max_length=20,blank=False)
-    lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
+    i_lessons = models.ForeignKey('Lessons', on_delete=models.CASCADE,blank=False) 
     tc = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999999)])
     created = models.DateTimeField(auto_now_add=True)
     students = models.ForeignKey('Student', on_delete=models.CASCADE)
@@ -53,7 +53,7 @@ class Instructor(models.Model):
 
 class Lessons(models.Model):
     name = models.CharField(max_length=40)
-    instructor = ForeignKey('Instructor', on_delete=models.CASCADE)
+    l_instructor = ForeignKey('Instructor', on_delete=models.CASCADE)
     student = ForeignKey('Student', on_delete=models.CASCADE)  
 
 
