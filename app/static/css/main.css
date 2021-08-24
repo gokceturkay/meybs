@@ -2,7 +2,7 @@
 body{font-size: 15px; color: #000;}
 
 /********* Navbar Override *********/
-.navbar-nav{padding-left: 77%;}     /* Nav'ın içindekileri sağa dayalı yapmalıyım. Float ve text align denedim. ''Geçici çözüm olarak padding verdim.'') */
+/*.navbar-nav{padding-left: 77%;} */    /* Nav'ın içindekileri sağa dayalı yapmalıyım. Float ve text align denedim. ''Geçici çözüm olarak padding verdim.'') */
 
 /********* Navbar *********/
                     /* Not : Dropdown menu'de text-align : center gerekiyor. */
