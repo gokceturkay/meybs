@@ -2,13 +2,12 @@
 body{font-size: 15px; color: #000;}
 
 /********* Navbar Override *********/
-.navbar-nav{padding-left: 77%;}     /* Nav'ın içindekileri sağa dayalı yapmalıyım. Float ve text align denedim. ''Geçici çözüm olarak padding verdim.'') */
+/* .navbar-nav{padding-left: 77%;} */
 
 /********* Navbar *********/
-                    /* Not : Dropdown menu'de text-align : center gerekiyor. */
-.nav-i, .nav-i-menu{border: none; background: none;}
-.nav-i{font-size: 1.9em} .nav-i-menu{font-size: 1.5em;}
-nav input{height: 2em;}     /* input'u küçülttüğüm için yatay ortalama yapmam gerekiyor. */
+.nav-icon, .nav-icon-menu{border: none; background: none;}
+.nav-icon{font-size: 1.9em} .nav-i-menu{font-size: 1.5em;}
+nav input{height: 2em; margin-top: 0.45em;}
 
 /********* Calendar *********/
 .soonest-class{margin: auto; background-color: #000; color: #fff;}
