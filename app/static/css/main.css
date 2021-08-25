@@ -1,13 +1,26 @@
 /********* GENERAL *********/
-body{font-size: 15px; color: #000;}
+body{font-size: 15px; color: #000; background-color: #6c757d;}
+.hidden{display: none;}
+.container-rest{margin-top: 2em;}
 
 /********* Navbar Override *********/
-/* .navbar-nav{padding-left: 77%;} */
+.navbar-nav input{margin-right: 3.2em; height: 2.5em; margin-top: 0.25em;}
 
 /********* Navbar *********/
+.container-nav{position: fixed; margin-top: -1.75em; z-index: 1;}
 .nav-icon, .nav-icon-menu{border: none; background: none;}
 .nav-icon{font-size: 1.9em} .nav-i-menu{font-size: 1.5em;}
-nav input{height: 2em; margin-top: 0.45em;}
+.nav-item{margin-right: 0.3em;}
+
+/********* leftMenu *********/
+.leftMenu{position: fixed; margin-top: 1em; background-color: #343a40; z-index: 1; height: 100%;}
+.leftMenu ul{list-style: none;}
+.leftMenu li{margin-top: 1em; margin-left: -2em;}
+.leftMenu a{color: #fff;}
+
+/********* rightMenu *********/
+.rightMenu{right: 0; position: fixed; height: 88%; }
+.rightMenu div{height: 33%; list-style: none;}
 
 /********* Calendar *********/
 .soonest-class{margin: auto; background-color: #000; color: #fff;}
@@ -30,3 +43,6 @@ nav input{height: 2em; margin-top: 0.45em;}
 .container-fluid div{border: 1px solid #000;}
 .row{border: none !important;}
 .row{padding: 1em 0;} .graph{margin: auto; height: 20em;} .add{margin: auto; height: 15em;} .add-user, .events{height: 12em;}
+.graph{background-color: indianred;}
+.add{background-color: cornflowerblue;}
+.rightMenu{border: none !important;}
