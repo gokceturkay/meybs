@@ -18,10 +18,6 @@ body{font-size: 15px; color: #000; background-color: #6c757d;}
 .leftMenu li{margin-top: 1em; margin-left: -2em;}
 .leftMenu a{color: #fff;}
 
-/********* rightMenu *********/
-.rightMenu{right: 0; position: fixed; height: 88%; }
-.rightMenu div{height: 33%; list-style: none;}
-
 /********* Calendar *********/
 .soonest-class{margin: auto; background-color: #000; color: #fff;}
 
