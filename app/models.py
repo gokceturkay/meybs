@@ -18,7 +18,7 @@ class Student(models.Model):
     created = models.DateTimeField(auto_now_add=True) 
     
     #Bağlantılar
-    s_custodian = models.OneToOneField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, null=True, blank=True, on_delete=models.CASCADE)
+    s_custodian = models.ManyToManyField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, null=True, blank=True)
     s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',null=True, blank=True) #beğenmedi :(
     
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
