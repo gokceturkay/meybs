@@ -19,8 +19,8 @@ class Student(models.Model):
     created = models.DateTimeField(auto_now_add=True) 
     
     #Bağlantılar
-    s_custodian = models.ManyToManyField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, null=True, blank=True)
-    s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',null=True, blank=True) #beğenmedi :(
+    s_custodian = models.ManyToManyField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, blank=True)
+    s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',blank=True) #beğenmedi :(
     
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
 
@@ -46,8 +46,8 @@ class Instructor(models.Model):
     last_name = models.CharField(verbose_name='Eğitmen Soyadı',max_length=20,blank=False)
     created = models.DateTimeField(auto_now_add=True)
     #Bağlantılar
-    i_lessons = models.ManyToManyField('Lessons',verbose_name='Eğitmenin Dersleri',blank=True,null=True) 
-    i_students = models.ManyToManyField('Student', verbose_name='Eğitmenin Öğrencileri',null=True, blank=True)
+    i_lessons = models.ManyToManyField('Lessons',verbose_name='Eğitmenin Dersleri',blank=True) 
+    i_students = models.ManyToManyField('Student', verbose_name='Eğitmenin Öğrencileri', blank=True)
     
     # paylaşımlar, diğer bilgiler istenmemiş
 
@@ -62,7 +62,7 @@ class Lessons(models.Model):
 
     #Bağlantılar
     l_instructor = models.ForeignKey('Instructor',verbose_name='Dersin Eğitmeni',on_delete=models.DO_NOTHING)
-    l_student = models.ManyToManyField('Student',verbose_name='Dersin Öğrencisi',null=True, blank=True)
+    l_student = models.ManyToManyField('Student',verbose_name='Dersin Öğrencisi',blank=True)
     
 
     def __str__(self):
