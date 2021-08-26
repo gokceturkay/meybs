@@ -6,6 +6,7 @@ from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
 
+
 class Student(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Öğrenci TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Öğrenci Adı',max_length=30, blank=False)
