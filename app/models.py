@@ -7,6 +7,11 @@ from django.utils import timezone
 import datetime
 
 
+
+
+
+
+
 class Student(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Öğrenci TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Öğrenci Adı',max_length=30, blank=False)
@@ -18,11 +23,14 @@ class Student(models.Model):
     phone_no = models.PositiveIntegerField(verbose_name='Öğrencinin GSM',validators=[MaxValueValidator(9999999999)])
     created = models.DateTimeField(auto_now_add=True) 
     
+    
     #Bağlantılar
     s_custodian = models.ManyToManyField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, blank=True)
     s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',blank=True) #beğenmedi :(
     
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
+
+    
 
     def FindAge(self):
         age =datetime.date.today()-self.birthday
@@ -38,6 +46,12 @@ class Student(models.Model):
         verbose_name = 'Öğrenci'
         verbose_name_plural = 'Öğrenciler'
         ordering = ['first_name', 'last_name']
+        #index_together = ['tc','first_name','last_name','birthday','address','email','school','phone_no']
+        
+        
+
+    
+        
 
 
 class Instructor(models.Model):
@@ -47,6 +61,7 @@ class Instructor(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     #Bağlantılar
     i_lessons = models.ManyToManyField('Lessons',verbose_name='Eğitmenin Dersleri',blank=True) 
+    
     i_students = models.ManyToManyField('Student', verbose_name='Eğitmenin Öğrencileri', blank=True)
     
     # paylaşımlar, diğer bilgiler istenmemiş
@@ -93,3 +108,5 @@ class Custodian(models.Model):
         verbose_name = 'Veli'
         verbose_name_plural = 'Veliler'
         ordering = ['first_name', 'last_name']
+
+        
