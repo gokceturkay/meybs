@@ -8,10 +8,6 @@ import datetime
 
 
 
-
-
-
-
 class Student(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Öğrenci TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Öğrenci Adı',max_length=30, blank=False)
@@ -32,9 +28,10 @@ class Student(models.Model):
 
     
 
-    def FindAge(self):
-        age =datetime.date.today()-self.birthday
-        return int((age).days/365.25)
+    #def FindAge(self):
+      #  age =datetime.date.today()-self.birthday
+       # return int((age).days/365.25) 
+        
         
     def __str__(self):
         #x=' '
@@ -50,9 +47,6 @@ class Student(models.Model):
         
         
 
-    
-        
-
 
 class Instructor(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Eğitmen TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
@@ -61,10 +55,10 @@ class Instructor(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     #Bağlantılar
     i_lessons = models.ManyToManyField('Lessons',verbose_name='Eğitmenin Dersleri',blank=True) 
-    
+
     i_students = models.ManyToManyField('Student', verbose_name='Eğitmenin Öğrencileri', blank=True)
     
-    # paylaşımlar, diğer bilgiler istenmemiş
+    
 
     class Meta:
         verbose_name = 'Eğitmen'
