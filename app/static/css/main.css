@@ -1,25 +1,57 @@
 /********* GENERAL *********/
-body{font-size: 15px; color: #000; background-color: #6c757d;}
+body{font-size: 15px; color: #000; background-color: lightslategray;}
 .hidden{display: none;}
-.container-rest{margin-top: 2em;}
+
+/********* Fonts *********/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+/* font-family: 'Libre Baskerville', serif */
 
 /********* Navbar Override *********/
-.navbar-nav input{margin-right: 3.2em; height: 2.5em; margin-top: 0.25em;}
+.navbar-brand{z-index: 101;}
 
 /********* Navbar *********/
-.container-nav{position: fixed; margin-top: -1.75em; z-index: 1;}
 .nav-icon, .nav-icon-menu{border: none; background: none;}
 .nav-icon{font-size: 1.9em} .nav-i-menu{font-size: 1.5em;}
-.nav-item{margin-right: 0.3em;}
+nav input{height: 2em;}
 
-/********* leftMenu *********/
-.leftMenu{position: fixed; margin-top: 1em; background-color: #343a40; z-index: 1; height: 100%;}
-.leftMenu ul{list-style: none;}
-.leftMenu li{margin-top: 1em; margin-left: -2em;}
-.leftMenu a{color: #fff;}
+/********* Layers *********/
+#menu .row{padding: 0 !important;}
+.container-layer{width: 100%; height: 100%; margin: 0; position: fixed; z-index: 99; background-color: black;
+                opacity: 0.85;}
+.container-on-layer{width: 100%; height: 100%; margin: 0; position: fixed; z-index: 100;}
 
+/* Left Menu */
+.left-menu ul{list-style: none; margin-left: -1.5em;}
+.left-menu .menu-item{color: #fff; font-size: 1.15em; margin-top: 0.3em;}
+.left-menu .menu-header{margin-top: 1.6em; font-size: 1.75em; font-family: 'Libre Baskerville', serif; margin-bottom: 0.7em;}
+.left-menu a{color: #9fcdff;}
+.menu-alt-item{margin-left: 1.3em;}
+.menu-footer-item{font-size: 0.82em; margin-bottom: 0.2em;}
+
+/* Message Area */
+.message-area{border: 1px solid #fff; height: 100%;}
+.message-area .row{padding: 0;}
+.message-control{top: 0; height: 2.6em;}
+.message-control button{color: #fff; height: 1.6em; width: 1.6em;}
+.message-control input{height: 2em;}
+.message-box{border: 1px solid #fff; color: #fff;}
+.message-box p{margin-top: -0.5em;}
+
+/* profile-notifications* */
+.profile-notifications{padding: 0 1em 0 2.8em;}
+
+/* Profile */
+.profile-area{text-align: center; background-color: #fff; color: #000; height: 13em; padding: 0.3em 0; float: right;}
+.pPhoto{border-radius: 100%;}
+.user{font-size: 1.32em;}
+.userPerm{font-size: 1.18em;}
+.profile-area a{font-size: 0.85em;}
+
+/* Notifications */
+.notification{height: 3em; color: #fff; border: 1px solid #fff; margin-top: 0.2em;}
+.notification-header{height: 2em; color: #fff;}
 /********* Calendar *********/
-.soonest-class{margin: auto; background-color: #000; color: #fff;}
+.soonest-class{margin-right: 5em; background-color: #000; color: #fff; width: 50em; height: 1em; margin-top: 0.50em;}
 
 /********* Graphs *********/
 
@@ -38,7 +70,5 @@ body{font-size: 15px; color: #000; background-color: #6c757d;}
 
 .container-fluid div{border: 1px solid #000;}
 .row{border: none !important;}
-.row{padding: 1em 0;} .graph{margin: auto; height: 20em;} .add{margin: auto; height: 15em;} .add-user, .events{height: 12em;}
-.graph{background-color: indianred;}
-.add{background-color: cornflowerblue;}
-.rightMenu{border: none !important;}
+.row{padding: 1em 0;} .graph{margin: auto; height: 20em; background-color: darkslateblue;} .add{margin: auto; height: 15em;} .add-user, .events{height: 12em;}
+.add{background-color: indianred;}

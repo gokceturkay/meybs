@@ -10,79 +10,138 @@
 
     <!-- Bootstrap 4x -->
     <link rel="stylesheet" href="{% static 'bootstrap-4.6.0-dist/css/bootstrap.min.css' %}">
-    <!-- index.css -->
+
+    <!-- main.css -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <!-- FontAwseome -->
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
 </head>
 
 <body>
 
-<header>
-    <div class="container-fluid container-nav">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-layer hidden" id="wall"></div>
 
-            <button class="navbar-brand nav-icon-menu" id="leftMenuSwitch"> <i class="fas fa-ellipsis-v"></i> </button>
+    <div class="container-on-layer hidden" id="menu">
+        <div class="row">
+            <div class="col-2 left-menu">
+                <ul>
+                    <li class="menu-item menu-header">ME-YBS</li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a>
+                    <ul>
+                        <li> <a class="menu-alt-item" href="#">Alt-Item</a> </li>
+                        <li> <a class="menu-alt-item" href="#">Alt-Item</a> </li>
+                        <li> <a class="menu-alt-item" href="#">Alt-Item</a> </li>
+                    </ul> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-item"> <a href="#">Menu-Item</a> </li>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <li class="menu-footer-item" style="margin-top: 3.4em;"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-footer-item"> <a href="#">Menu-Item</a> </li>
+                    <li class="menu-footer-item"> <a href="#">Menu-Item</a> </li>
+                </ul>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="col-4"></div>
 
-                <div class="navbar-nav">
+            <div class="col-3 message-area">
+                <div class="row">
+                    <div class="col-12 message-control"> <button> < </button> <input type="text"> </div>
+                    <div class="col-12 message-box">
+                        <h5>Lorem Ipsum</h5>
+                        <p>X yeni mesaj.</p>
+                    </div>
 
-                    <input class="nav-item" placeholder="Ara">
-                    <button class="nav-item nav-icon" id="profile-btn"> <i class="fas fa-user-circle"></i> </button>
-                    <button class="nav-item nav-icon" id="message-btn"> <i class="far fa-comment-dots"></i> </button>
-                    <button class="nav-item nav-icon" id="notification-btn"> <i class="fas fa-bell"></i> </button>
+                    <div class="col-12 message-box">
+                        <h5>Lorem Ipsum</h5>
+                        <p>X yeni mesaj.</p>
+                    </div>
 
+                    <div class="col-12 message-box">
+                        <h5>Lorem Ipsum</h5>
+                        <p>X yeni mesaj.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 profile-notifications">
+
+                <div class="row">
+                    <div class="col-12 profile-area">
+                        <img class="pPhoto" height="75" width="75">
+                        <h5 class="user">Lorem Ipsum</h5>
+                        <h5 class="userPerm">Yönetici</h5>
+                        <a href="#">Profili düzenle</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 notification-header">
+                        Notifications
+                    </div>
+                    <div class="col-12 notification">Notification</div>
+                    <div class="col-12 notification">NOtification</div>
+                    <div class="col-12 notification">NOtification</div>
+                    <div class="col-12 notification">NOtification</div>
                 </div>
 
             </div>
-
-        </nav>
+        </div>
     </div>
-</header>
 
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <div class="container-fluid container-rest">
+                <button class="navbar-brand nav-icon-menu" id="layer-switch"> <i class="fas fa-ellipsis-v"></i> </button>
 
-        <div class="row">
-            <div class="col-2 leftMenu hidden">
-                <ul>
-                    <li> <a href="#">List-Item</a> </li>
-                    <li> <a href="#">List-Item</a> </li>
-                    <li> <a href="#">List-Item</a> </li>
-                    <li> <a href="#">List-Item</a> </li>
-                    <li> <a href="#">List-Item</a> </li>
-                </ul>
-            </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
+                    <div class="navbar-nav">
+
+                        <div class="soonest-class">
+                            En yakın ders
+                        </div>
+                        <input class="nav-item" placeholder="Ara">
+
+                    </div>
+
+                </div>
+
+            </nav>
         </div>
+    </header>
 
-        </div>
+    <div class="container-fluid">
 
         <div class="row">
 
             <div class="col-8">
 
-                <div class="row calendar">
-                    <div class="col-10 soonest-class">
-                        En yakın ders
-                    </div>
-                </div>
-
                 <div class="row graphs">
-                    <div class="col-11 graph"> <!-- class ismi değişecek -->
+                    <div class="col-11 graph" style> <!-- class ismi değişecek -->
                         Grafikler
                     </div>
                 </div>
 
                 <div class="row post">
                     <div class="col-11 add"> <!-- class ismi değişecek -->
-                         Bildirim gönder
+                        <input type="text" placeholder="Title">
+                        <input type="text" placeholder="Text">
+                        <input type="search" placeholder="Search">
+                        <select id="select">
+                            <option value="x">Lorem Ipsum</option>
+                        </select>
                     </div>
                 </div>
 
@@ -128,6 +187,7 @@
         </div>
 
     </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="{% static 'js/main.js' %}"></script>
