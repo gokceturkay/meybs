@@ -6,9 +6,9 @@ from django.utils import timezone
 def dashboard(request):
     return render(request, 'index.html', {})
 
-def students_list(resquest):
+def students_list(request):
     list_students = Student.objects.filter(created__lte=timezone.now()).order_by("created")
-    return render(resquest,'students_list.html', {'list_students':list_students})
+    return render(request,'students_list.html', {'list_students':list_students})
 
 
 
