@@ -22,28 +22,30 @@ class Student(models.Model):
     
     #Bağlantılar
     s_custodian = models.ManyToManyField('Custodian', verbose_name='Öğrencinin Velisi',max_length=30, blank=True)
-    s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',blank=True) #beğenmedi :(
+    s_lessons = models.ManyToManyField('Lessons', verbose_name='Öğrencinin Dersleri',blank=True) 
     
     # yarışmalar, arkadaşlar, paylaşımlar, ödüller, rozetler
 
     
 
-    #def FindAge(self):
-      #  age =datetime.date.today()-self.birthday
-       # return int((age).days/365.25) 
+    def FindAge(self):
+        age =datetime.date.today()-self.birthday
+        full_age = int((age).days/365.25)
+        return full_age
         
         
     def __str__(self):
         #x=' '
         #name= self.first_name + x +self.last_name 
         #return name
-        return "%s %s" % (self.first_name, self.last_name)
+        full_name = "%s %s" % (self.first_name, self.last_name)
+        return full_name
 
     class Meta:
         verbose_name = 'Öğrenci'
         verbose_name_plural = 'Öğrenciler'
-        ordering = ['first_name', 'last_name']
-        #index_together = ['tc','first_name','last_name','birthday','address','email','school','phone_no']
+        ordering = ['first_name','last_name']
+        
         
         
 
