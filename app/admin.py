@@ -8,11 +8,12 @@ import datetime
 
 
 class  DetailsStudent(admin.ModelAdmin):
-    list_display = (('first_name','last_name','birthday','get_custodian','get_lessons'))
+    list_display = (('first_name','last_name','get_custodian','get_lessons'))
 
     def get_custodian(self, obj):
         return "\n".join([str(p)for p in obj.s_custodian.all()])
-
+        
+    
     def get_lessons(self, obj):
         return "\n".join([str(p)for p in obj.s_lessons.all()])
 
