@@ -16,6 +16,7 @@ class  DetailsStudent(admin.ModelAdmin):
     
     def get_lessons(self, obj):
         return "\n".join([str(p)for p in obj.s_lessons.all()])
+        
 
     #def FindAge(self):
     #    age =datetime.date.today()-self.birthday
