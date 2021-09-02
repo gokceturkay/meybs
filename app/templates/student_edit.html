@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Yeni Öğrenci</h1>
+    <a href="{% url 'post_new' %}">öğrenci ekle</a>
+    <form method="POST" class="student-form">{% csrf_token %}
+        {{ form.as_s }}
+        <button type="submit" class="save btn btn-default">Kaydet</button>
+    </form>
+{% endblock %}
