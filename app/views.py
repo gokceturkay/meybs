@@ -12,6 +12,9 @@ def students_list(request):
     list_students = Student.objects.filter(created__lte=timezone.now()).order_by("created")
     return render(request,'students_list.html', {'list_students':list_students})
 
+def student_panel(request):
+    return render(request, 'student_panel.html', {})
+
 def post_new(request):
 
     if request.method == "POST":
