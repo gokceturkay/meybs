@@ -1,0 +1,23 @@
+/***** Costumer *****/
+.costumer{border: 1px solid #000; padding: 0 0 1em 1em;}
+.costumer-header{text-align: center; margin: auto; margin-top: 0.5em;}
+.costumer-header h5{font-size: 1em; margin: 0 0 -0.2em 0;}
+.costumer-header h4{font-size: 1.7em;}
+.costumer-body{padding: 0 9%;}
+.costumer-body p{margin: 0.2em 0 0 0;}
+.costumer-header, .costumer-body{margin-left: -2em;}
+
+/* Table */
+.history table{margin: auto; width: 100%; margin-top: 0.4em;}
+th, td{padding: 0.1em 0.8em 0.1em 0.2em; border: 1px solid #000;}
+
+/***** Notifications *****/
+.notification{margin: auto; border: 0.7px solid black; margin-top: 1em; padding: 0.5em 1em;}
+.notification:hover{padding-left: 1.7em; transition: 0.6s;}
+.notification h5 span{font-size: 0.8em;}
+.notification h5, .notification-type{display: inline-block;}
+.notification-type{float: right; font-size: 0.87em;}
+.notification-content{line-height: 1.2em;}
+.homework{background-color: yellowgreen;}
+.bill{background-color: indianred;}
+.inform{background-color: hotpink;}
