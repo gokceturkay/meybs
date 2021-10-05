@@ -8,7 +8,8 @@ import datetime
 
 
 class  DetailsStudent(admin.ModelAdmin):
-    list_display = (('first_name','last_name','get_custodian','get_lessons'))
+
+    list_display = (('first_name','last_name','get_custodian','get_lessons','FindAge'))
 
     def get_custodian(self, obj):
         return "\n".join([str(p)for p in obj.s_custodian.all()])
@@ -18,9 +19,7 @@ class  DetailsStudent(admin.ModelAdmin):
         return "\n".join([str(p)for p in obj.s_lessons.all()])
         
 
-    #def FindAge(self):
-    #    age =datetime.date.today()-self.birthday
-    #    return int((age).days/365.25)
+    Student.FindAge
     
 
 
@@ -37,16 +36,17 @@ class  DetailsInstructor(admin.ModelAdmin):
 
 
 
-#class  DetailsLessons(admin.ModelAdmin):
-#   list_display = (('id','name','get_instructor','get_student'))
+class  DetailsLessons(admin.ModelAdmin):
+    list_display = (('name','get_instructor','getStudents'))
 
 
-    #def get_instructor(self, obj):
-        #return "\n".join([str(p)for p in obj.l_instructor.all()])
+    def get_instructor(self, obj):
+        
+        return Lessons.l_instructor
 
 
-    #def get_student(self, obj):
-        #return "\n".join([str(p)for p in obj.l_student.all()])
+    def getStudents(self, obj):
+        return "\n".join([str(p)for p in obj.l_student.all()])
 
 
 
@@ -62,7 +62,7 @@ class DetailsCostodian(admin.ModelAdmin):
 
 admin.site.register(Student, DetailsStudent)
 admin.site.register(Instructor, DetailsInstructor)
-admin.site.register(Lessons)
+admin.site.register(Lessons, DetailsLessons)
 admin.site.register(Custodian, DetailsCostodian)
 
 
