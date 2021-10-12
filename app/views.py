@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 
 def dashboard(request):
-    return render(request, 'index.html', {})
+    return render(request, 'index-saas.html', {})
 
 def students_list(request):
     list_students = Student.objects.filter(created__lte=timezone.now()).order_by("created")
