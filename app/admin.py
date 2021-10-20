@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Student, Instructor, Lessons, Custodian
 
-import datetime
+
 
 
 
@@ -17,9 +17,11 @@ class  DetailsStudent(admin.ModelAdmin):
     
     def get_lessons(self, obj):
         return "\n".join([str(p)for p in obj.s_lessons.all()])
-        
-
-    Student.FindAge
+    
+    get_lessons.short_description = "Dersler"
+    get_custodian.short_description = "veliler"
+    
+    
     
 
 
@@ -30,6 +32,8 @@ class  DetailsInstructor(admin.ModelAdmin):
 
     def get_lessons(self, obj):
         return "\n".join([str(p)for p in obj.i_lessons.all()])
+    
+    get_lessons.short_description = "Dersler"
 
 
 
@@ -41,12 +45,19 @@ class  DetailsLessons(admin.ModelAdmin):
 
 
     def get_instructor(self, obj):
-        
-        return Lessons.l_instructor
+        return Lessons.l_instructor_groups
 
+
+#Lessons.l_instructor
 
     def getStudents(self, obj):
         return "\n".join([str(p)for p in obj.l_student.all()])
+
+    get_instructor.short_description = "Eğitmenler"
+    getStudents.short_description = "Öğrenciler"
+
+
+    
 
 
 
@@ -58,7 +69,7 @@ class DetailsCostodian(admin.ModelAdmin):
 
     def get_students(self, obj):
         return "\n".join([str(p)for p in obj.c_students.all()])
-
+    get_students.short_description = "Öğrenciler"
 
 admin.site.register(Student, DetailsStudent)
 admin.site.register(Instructor, DetailsInstructor)
