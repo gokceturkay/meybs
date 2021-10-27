@@ -7,6 +7,8 @@ from .models import Student, Instructor, Lessons, Custodian
 
 
 
+
+
 class  DetailsStudent(admin.ModelAdmin):
 
     list_display = (('first_name','last_name','get_custodian','get_lessons','FindAge'))
@@ -45,10 +47,8 @@ class  DetailsLessons(admin.ModelAdmin):
 
 
     def get_instructor(self, obj):
-        return Lessons.l_instructor_groups
-
-
-#Lessons.l_instructor
+        return "\n".join([str(p)for p in obj.l_instructor])
+       #return Lessons.l_instructor (işe yaramıyor)
 
     def getStudents(self, obj):
         return "\n".join([str(p)for p in obj.l_student.all()])

@@ -74,7 +74,7 @@ class Lessons(models.Model):
     name = models.CharField(max_length=40)
 
     #Bağlantılar
-    l_instructor_groups = models.ManyToManyField('Instructor',related_name="instructors",blank=True) 
+    l_instructor = models.ForeignKey('Instructor',verbose_name='Dersin Eğitmeni',blank=True, on_delete=models.DO_NOTHING) 
     l_student = models.ManyToManyField('Student',verbose_name='Dersin Öğrencisi',blank=True)
     
 
