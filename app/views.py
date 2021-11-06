@@ -6,29 +6,15 @@ from .forms import StudentForm
 from django.shortcuts import redirect
 from django.contrib import messages
 
-
-
 def dashboard(request):
     return render(request, 'index-saas.html', {})
-
-
-
 
 def students_list(request):
     list_students = Student.objects.filter(created__lte=timezone.now()).order_by("created")
     return render(request,'students_list.html', {'list_students':list_students})
 
-
-
 def student_panel(request):
-    students_name = Student.FullName
-    students_act_l = Student.s_lessons
-
-    return render(request, 'student_panel.html', {"students_name":students_name},{"students_act_l":students_act_l})
-
-
-
-
+    return render(request, 'student_panel.html', {})
 
 def post_new(request):
 
@@ -50,8 +36,6 @@ def post_new(request):
     else:
         form = StudentForm()
     return render(request, 'student_edit.html', {'form': form})
-
-
 
 
 

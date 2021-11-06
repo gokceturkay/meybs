@@ -34,7 +34,7 @@ class Student(models.Model):
         return full_age
         
         
-    def FullName(self): #__str__:full_name
+    def __str__(self):
         #x=' '
         #name= self.first_name + x +self.last_name 
         #return name

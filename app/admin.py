@@ -1,10 +1,8 @@
-from typing import ValuesView
 from django.contrib import admin
 
 from .models import Student, Instructor, Lessons, Custodian
 
 import datetime
-
 
 
 
@@ -45,11 +43,13 @@ class  DetailsLessons(admin.ModelAdmin):
 
 
     def get_instructor(self, obj):
-        return obj.l_instructor
-    get_instructor.short_description = "Eğitmenler"
+        return "\n".join([str(p)for p in obj.l_instructor])
+       #return Lessons.l_instructor (işe yaramıyor)
 
     def getStudents(self, obj):
         return "\n".join([str(p)for p in obj.l_student.all()])
+
+    get_instructor.short_description = "Eğitmenler"
     getStudents.short_description = "Öğrenciler"
 
 
