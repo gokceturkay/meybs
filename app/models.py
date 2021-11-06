@@ -36,7 +36,7 @@ class Student(models.Model):
     FindAge.short_description = "Yaş"
         
         
-    def __str__(self):
+    def FullName(self): #__str__:full_name
         #x=' '
         #name= self.first_name + x +self.last_name 
         #return name
