@@ -1,4 +1,4 @@
-#!/Users/gokceturkay/Atolyeler/proje_me-ybs_2021/me-ybs_v1/venv/bin/python
+#!/Users/gokceturkay/Atolyeler/proje_me-ybs_2021/me-ybs_v1/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

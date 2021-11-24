@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AbstactUser
 from django.db import models
 from django.core.validators import MaxValueValidator
 from django.db.models.base import ModelState
@@ -7,9 +6,7 @@ from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
 
-class User(AbstractUser):
-    is_student = models.BooleanField(default=False)
-    is_instructor = models.BooleanField(default=False)
+
 
 class Student(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Öğrenci TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
@@ -51,6 +48,10 @@ class Student(models.Model):
         verbose_name_plural = 'Öğrenciler'
         ordering = ['first_name','last_name']
         
+        
+        
+
+
 class Instructor(models.Model):
     tc = models.PositiveIntegerField(verbose_name='Eğitmen TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Eğitmen Adı',max_length=30,blank=False)
@@ -108,4 +109,4 @@ class Custodian(models.Model):
 
         
 
-
+        
