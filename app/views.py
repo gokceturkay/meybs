@@ -14,7 +14,8 @@ def students_list(request):
     return render(request,'students_list.html', {'list_students':list_students})
 
 def student_panel(request):
-    return render(request, 'student_panel.html', {})
+    students_name = Student.full_name
+    return render(request, 'student_panel.html', {"students_name":students_name},{})
 
 def post_new(request):
 
