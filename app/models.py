@@ -32,9 +32,11 @@ class Student(models.Model):
         age =datetime.date.today()-self.birthday
         full_age = int((age).days/365.25)
         return full_age
+
+    FindAge.short_description = "Yaş"
         
         
-    def __str__(self):
+    def full_name(self):
         #x=' '
         #name= self.first_name + x +self.last_name 
         #return name
@@ -57,7 +59,7 @@ class Instructor(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     #Bağlantılar
     i_lessons = models.ManyToManyField('Lessons',verbose_name='Eğitmenin Dersleri',blank=True) 
-
+    
     i_students = models.ManyToManyField('Student', verbose_name='Eğitmenin Öğrencileri', blank=True)
     
     
@@ -72,7 +74,7 @@ class Lessons(models.Model):
     name = models.CharField(max_length=40)
 
     #Bağlantılar
-    l_instructor = models.ForeignKey('Instructor',verbose_name='Dersin Eğitmeni',on_delete=models.DO_NOTHING)
+    l_instructor_groups = models.ManyToManyField('Instructor',related_name="instructors",blank=True) 
     l_student = models.ManyToManyField('Student',verbose_name='Dersin Öğrencisi',blank=True)
     
 
