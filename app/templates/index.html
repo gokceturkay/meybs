@@ -183,8 +183,17 @@
                 <div class="row new-user"> <!-- isimler -->
                     <div class="col-12 add-user">
                         Yeni kullanıcı ekle
-                        <a href="{% url 'post_new' %}">öğrenci ekle</a>
-                            <form method="POST" class="student-form">{% csrf_token %}
+                            <form method="POST">{% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="save btn btn-default">Kaydet</button>
+                            </form>
+                    </div>
+                </div>
+
+                <div class="row"> <!-- mesaj gönder -->
+                    <div class="col-12">
+                        Yeni mesaj gönder
+                            <form method="POST">{% csrf_token %}
                                 {{ form.as_p }}
                                 <button type="submit" class="save btn btn-default">Kaydet</button>
                             </form>
