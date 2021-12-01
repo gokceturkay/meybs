@@ -125,8 +125,17 @@
     <div class="container-fluid">
 
         <div class="row">
-
+            <div class="col-12">
+                {% if user.is_authenticated %}
+                    Merhaba {{ user.username }}!
+                    <p><a href="{% url 'logout' %}">Çıkış Yap</a></p>
+                {% else %}
+                    <p>Henüz giriş yapmadın.</p>
+                    <a href="{% url 'login' %}">Giriş Yap</a>
+                {% endif %}
+            </div>
             <div class="col-8">
+                
 
                 <div class="row graphs">
                     <div class="col-11 graph" style> <!-- class ismi değişecek -->
