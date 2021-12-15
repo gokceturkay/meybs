@@ -5,10 +5,18 @@ from django.db.models.fields import AutoField, CharField
 from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
+
 
 
 class Student(models.Model):
-    tc = models.PositiveIntegerField(verbose_name='Öğrenci TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
+    user = models.OneToOneField(User,on_delete=models.CASCADE,default=1)
+    is_student = models.BooleanField(default=True)
+    is_custodian = models.BooleanField(default=False)
+    is_instructor = models.BooleanField(default=False)
+
+    tc = models.PositiveIntegerField(verbose_name='Öğrenci TC', validators=[MaxValueValidator(99999999999)])
+    
     first_name = models.CharField(verbose_name='Öğrenci Adı',max_length=30, blank=False)
     last_name = models.CharField(verbose_name='Öğrenci Soyadı',max_length=20, blank=False)
     birthday = models.DateField(verbose_name='Öğrencinin Doğum Rarihi',max_length=8, blank=True) # sınırlamalar koy
@@ -52,7 +60,12 @@ class Student(models.Model):
 
 
 class Instructor(models.Model):
-    tc = models.PositiveIntegerField(verbose_name='Eğitmen TC',primary_key=True, validators=[MaxValueValidator(99999999999)])
+    user = models.OneToOneField(User,on_delete=models.CASCADE,default=1)
+    is_student = models.BooleanField(default=False)
+    is_custodian = models.BooleanField(default=False)
+    is_instructor = models.BooleanField(default=True)
+
+    tc = models.PositiveIntegerField(verbose_name='Eğitmen TC', validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Eğitmen Adı',max_length=30,blank=False)
     last_name = models.CharField(verbose_name='Eğitmen Soyadı',max_length=20,blank=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -87,7 +100,12 @@ class Lessons(models.Model):
 
 
 class Custodian(models.Model):
-    tc = models.PositiveIntegerField(verbose_name='Veli tc',primary_key=True, validators=[MaxValueValidator(99999999999)])
+    user = models.OneToOneField(User,on_delete=models.CASCADE,default=1)
+    is_student = models.BooleanField(default=False)
+    is_custodian = models.BooleanField(default=True)
+    is_instructor = models.BooleanField(default=False)
+
+    tc = models.PositiveIntegerField(verbose_name='Veli tc',validators=[MaxValueValidator(99999999999)])
     first_name = models.CharField(verbose_name='Veli adı',max_length=30,blank=True)
     last_name = models.CharField(verbose_name='Veli soyadı',max_length=20,blank=True)
     

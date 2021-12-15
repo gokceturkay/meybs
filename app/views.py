@@ -66,8 +66,8 @@ def post_new(request):
 
 #çalışılıyor
 def panel(request):
-    umodel = get_user_model()
-    if umodel == "Student":
+    
+    if Student.is_student:
         return HttpResponse("Öğrenci")
     else:
         return HttpResponse("Başka")
