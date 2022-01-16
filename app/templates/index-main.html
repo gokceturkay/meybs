@@ -1141,6 +1141,83 @@
                 <!-- Content Wrapper START -->
                 <div class="main-content">
                     <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="media justify-content-between">
+                                            <div>
+                                                <p class="">Total Revenue</p>
+                                                <h2 class="font-size-28 font-weight-light">$23,495</h2>
+                                                <span class="text-semibold text-success font-size-15">
+                                                    <i class="ti-arrow-up font-size-11"></i> 
+                                                    <span>12%</span>
+                                                </span>
+                                            </div>
+                                            <div class="align-self-end">
+                                                <i class="ti-credit-card font-size-70 text-success opacity-01"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="media justify-content-between">
+                                            <div>
+                                                <p class="">Daily Product</p>
+                                                <h2 class="font-size-28 font-weight-light">3,758</h2>
+                                                <span class="text-semibold text-danger font-size-15">
+                                                    <i class="ti-arrow-down font-size-11"></i> 
+                                                    <span>7%</span>
+                                                </span>
+                                            </div>
+                                            <div class="align-self-end">
+                                                <i class="ti-pie-chart font-size-70 text-info opacity-01"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="media justify-content-between">
+                                            <div>
+                                                <p class="">Growth Rate</p>
+                                                <h2 class="font-size-28 font-weight-light">28%</h2>
+                                                <span class=" font-size-13 opacity-04">
+                                                    from last month
+                                                </span>
+                                            </div>
+                                            <div class="align-self-end">
+                                                <i class="ti-bar-chart font-size-70 text-danger opacity-01"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="media justify-content-between">
+                                            <div>
+                                                <p class="">New Customers</p>
+                                                <h2 class="font-size-28 font-weight-light">178</h2>
+                                                <span class="text-semibold text-success font-size-15">
+                                                    <i class="ti-arrow-up font-size-11"></i> 
+                                                    <span>18%</span>
+                                                </span>
+                                            </div>
+                                            <div class="align-self-end">
+                                                <i class="ti-user font-size-70 text-primary opacity-01"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                        <div class="row">
                            <div class="col-md-4">
                                <div class="card">
@@ -1607,6 +1684,39 @@
                                 </div> 
                             </div>
                         </div>
+
+                        <!-- dinamik alan-->
+                        <div class="row">
+                            <div class="col-12">
+                                {% if user.is_authenticated %}
+                                    Merhaba {{ user.username }}!
+                                    <p><a href="{% url 'logout' %}">Çıkış Yap</a></p>
+                                {% else %}
+                                    <p>Henüz giriş yapmadın.</p>
+                                    <a href="{% url 'login' %}">Giriş Yap</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row new-user"> <!-- isimler -->
+                            <div class="col-12 add-user">
+                                Yeni kullanıcı ekle
+                                    <form method="POST">{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit" class="save btn btn-default">Kaydet</button>
+                                    </form>
+                            </div>
+                        </div>
+        
+                        <div class="row"> <!-- mesaj gönder -->
+                            <div class="col-12">
+                                Yeni mesaj gönder
+                                    <form method="POST">{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit" class="save btn btn-default">Kaydet</button>
+                                    </form>
+                            </div>
+                        </div>
+                        <!-- //dinamik alan -->
                     </div>
                 </div>
                 <!-- Content Wrapper END -->

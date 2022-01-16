@@ -7,11 +7,13 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from django.contrib.auth import get_user_model
+from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView
 
 
 def dashboard(request):
-    return render(request, 'index.html', {})
+    return render(request, 'index-main.html', {})
 
 def students_list(request):
     list_students = Student.objects.filter(created__lte=timezone.now()).order_by("created")
@@ -46,28 +48,35 @@ def post_new(request):
         form = StudentForm()
     return render(request, 'student_edit.html', {'form': form})
 
-#def login_view(request):
-#    if request.method == 'POST':
-#       username = request.POST.get('username')
-#        password = request.POST.get('password')
-#        user = authenticate(username=username, password=password)
-#        if user:
-#            if user.is_active:
-#                login(request, user)
-#                return HttpResponseRedirect('/panel/')
-#            else:
-#                return HttpResponse("Hesabını actif değil")
-#        else:
-#            print("Hatalı giriş bilgileri: {0}, {1}").format(username, password)
-#            return HttpResponse("Hatalı giriş bilgileri alındı.")
-#    else:
-#        return render(request, 'registration/login.html', {}) 
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/panel/')
+            else:
+                return HttpResponse("Hesabını actif değil")
+        else:
+            print("Hatalı giriş bilgileri: {0}, {1}").format(username, password)
+            return HttpResponse("Hatalı giriş bilgileri alındı.")
+    else:
+        return render(request, 'registration/login.html', {}) 
 
 
 #çalışılıyor
 def panel(request):
-    
-    if Student.is_student:
-        return HttpResponse("Öğrenci")
-    else:
-        return HttpResponse("Başka")
+    return HttpResponse("Giriş yapıldı.")
+
+def login(request):
+    if request.method =='POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request, 'login.html', {'form':form})
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = "login.html"

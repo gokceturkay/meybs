@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <!-- General -->
+    <title>Me-Ybs Maker Eskişehir</title>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap 4x -->
+    <link rel="stylesheet" href="{% static 'bootstrap-4.6.0-dist/css/bootstrap.min.css' %}">
+
+    <!-- main.css -->
+    <link rel="stylesheet" href="{% static 'css/costumer.css' %}">
+
+    <!-- FontAwseome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+</head>
+
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-4">
+
+                <div class="row">
+
+                   <div class="col-6">
+                    <h2>Giriş Yap</h2>
+                        <form method="post">{% csrf_token %}
+                            <!-- method="post" ise csrf ataklarından korunmak için mutlaka csrf_token kullanmalıyız-->
+                            {{ form.as_p }}
+                        <button type="submit">Giriş Yap</button>
+                    </form>
+                   </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="{% static 'js/costumer.js' %}"></script>
+</body>
+
+</html>

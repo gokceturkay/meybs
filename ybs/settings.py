@@ -124,3 +124,5 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 LOGIN_REDIRECT_URL = '/panel'
 LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'app.User'

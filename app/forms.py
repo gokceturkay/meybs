@@ -1,8 +1,7 @@
 from django import forms
-from .models import Student
+from .models import *
 from django.forms import ModelForm
-
-
+from django.contrib.auth.forms import UserCreationForm
 
 class StudentForm(forms.ModelForm):
     class Meta:
@@ -14,4 +13,7 @@ class InfoForm(forms.ModelForm):
     #lesson = 
     message = forms.CharField(widget=forms.Textarea)
     
-    
+class UserCreationForm(UserCreationForm):
+    class Meta: 
+        model = User
+        fields = (['first_name'])

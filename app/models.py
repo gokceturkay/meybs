@@ -6,8 +6,13 @@ from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 import datetime
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
-
+class User(AbstractUser):
+    first_name = models.CharField(verbose_name='Adınız',max_length=30, blank=False)
+    
+    class Meta(AbstractUser.Meta):
+        swappable = 'AUTH_USER_MODEL'
 
 class Student(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,default=1)
